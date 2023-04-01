@@ -4,21 +4,17 @@ import { SuccessCodesMeta } from "../constants/success-codes.js"
 export default {
   SUCCESS: (res, data = {}, message = SuccessCodesMeta.SUCCESS.message) => {
     res.status(200).json({
-      meta: {
-        status: 200,
-        response: "OK",
-        message,
-      },
+      status: 200,
+      response: "OK",
+      message,
       data,
     });
   },
   CREATED: (res, data = {}, message = SuccessCodesMeta.CREATED.message) => {
     res.status(201).json({
-      meta: {
-        status: 201,
-        response: "Created",
-        message,
-      },
+      status: 201,
+      // response: "Created",
+      message,
       data,
     });
   },
@@ -94,21 +90,17 @@ export default {
   },
   FORBIDDEN: (res, data = {}, message = ErrorCodesMeta.FORBIDDEN.message) => {
     res.status(403).json({
-      meta: {
-        status: 403,
-        response: "Forbidden",
-        message,
-      },
+      status: 403,
+      // response: "Forbidden",
+      message,
       data,
     });
   },
   NOT_FOUND: (res, data = {}, message = ErrorCodesMeta.NOT_FOUND.message) => {
     res.status(404).json({
-      meta: {
-        status: 404,
-        response: "Not Found",
-        message,
-      },
+      status: 404,
+      // response: "Not Found",
+      message,
       data,
     });
   },
@@ -134,11 +126,9 @@ export default {
   },
   INTERNAL_SERVER_ERROR: (res, data = {}, message = ErrorCodesMeta.INTERNAL_SERVER_ERROR.message) => {
     res.status(500).json({
-      meta: {
-        status: 500,
-        response: "Internal Server Error",
-        message,
-      },
+      status: 500,
+      // response: "Internal Server Error",
+      message,
       data,
     });
   },

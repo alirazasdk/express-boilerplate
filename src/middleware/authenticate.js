@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import httpResponse from "../utils/httpResponse.js";
+import {} from "dotenv/config";
+import config from "../config/index.js"
 
 export default (req, res, next) => {
     const token = req.header("authorization");
@@ -8,7 +10,7 @@ export default (req, res, next) => {
     const bearerToken = token.split(" ")[1];
 
     try {
-        const decoded = jwt.verify(bearerToken, "my_temporary_secret");
+        const decoded = jwt.verify(bearerToken, config.env.secretKey);
         req.user = decoded;
         next();
     } catch (ex) {
